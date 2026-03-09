@@ -2,18 +2,31 @@ package com.beyond.di.owner;
 
 import com.beyond.di.config.RootConfig;
 import com.beyond.di.pet.Cat;
-import com.beyond.di.pet.Dog;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.*;
 
+// JUnit에서 스프링을 사용할 수 있도록 SpringExtension.class 사용하여 확장한다
+@ExtendWith(SpringExtension.class)
+// @ContextConfiguration을 통해서 설정 파일을 읽고 애플리케이션 컨텍스트를 생성한다
+@ContextConfiguration(locations = "classpath:spring/root-context.xml")
+//@ContextConfiguration(classes = RootConfig.class)
 @DisplayName("Owner 클래스 테스트")
 class OwnerTest {
+    @Autowired
+    @Qualifier("lee")
+    // 자동 주입해줘 Owner타입
+    private Owner owner;
+
 
     @Test
     @DisplayName("GenericXmlApplicationContext")
@@ -74,6 +87,15 @@ class OwnerTest {
         assertThat(context).isNotNull();
         assertThat(owner.getPet()).isNotNull();
 
+    }
+
+    @Test
+    @DisplayName("Autowired 테스트")
+    void autowiredTest() {
+        System.out.println(owner);
+
+        assertThat(owner).isNotNull();
+        assertThat(owner.getPet()).isNotNull();
     }
 
 }
