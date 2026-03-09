@@ -1,11 +1,13 @@
 package com.beyond.di.owner;
 
+import com.beyond.di.config.RootConfig;
 import com.beyond.di.pet.Cat;
 import com.beyond.di.pet.Dog;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import static org.assertj.core.api.Assertions.*;
@@ -58,5 +60,20 @@ class OwnerTest {
 
     }
 
+    @Test
+    @DisplayName("annotationConfigApplicationContext")
+    void name() {
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(RootConfig.class); // 자바 설정을 받아서 빈의 의존성?설정
+
+        // 이 Bean을 Owner 타입으로 가져와라
+        Owner owner = context.getBean("lee", Owner.class);
+        System.out.println(owner);
+
+        assertThat(owner).isNotNull();
+        assertThat(context).isNotNull();
+        assertThat(owner.getPet()).isNotNull();
+
+    }
 
 }
