@@ -1,20 +1,19 @@
 package com.beyond.di.owner;
 
-import com.beyond.di.pet.Cat;
-import com.beyond.di.pet.Dog;
+import com.beyond.di.pet.Pet;
 
 public class Owner {
     private String name;
     private int age;
-    private Cat cat;
+    private Pet pet;
 
     public Owner() {
     }
 
-    public Owner(String name, int age, Cat cat) {
+    public Owner(String name, int age, Pet pet) {
         this.name = name;
         this.age = age;
-        this.cat = cat;
+        this.pet = pet;
     }
 
     public String getName() {
@@ -25,8 +24,8 @@ public class Owner {
         return age;
     }
 
-    public Cat getCat() {
-        return cat;
+    public Pet getPet() {
+        return pet;
     }
 
     @Override
@@ -34,7 +33,7 @@ public class Owner {
         return "Owner{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", dog=" + cat +
+                ", pet=" + pet +
                 '}';
     }
 
@@ -46,7 +45,7 @@ public class Owner {
         this.age = age;
     }
 
-    public void setCat(Cat cat) {
-        this.cat = cat;
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 }

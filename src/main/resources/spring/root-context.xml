@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- owner-context.xml pet-context.xml 복붙하세여-->
+    <import resource="owner-context.xml"/>
+    <import resource="pet-context.xml"/>
+
+
+
+    <!--
+    Application context가 객체생성하고 연결해줄거임.
+
+    Owner hong = new Owner();
+
+    hong.setName("홍길동");
+    hong.setAge(34);
+    hong.setPet(dog);
+    <property name="">는 setter로 값을 정해주는 거다.!!
+    문자열이나 기본타입을 전달할때는 value=""
+
+    -->
+    <!-- OwnerTest에서 지금 xml읽어서 빈 생성됨 -->
+
+
+    <!--
+    Owner lee = new Owner("이몽룡", 24, new Cat());
+    -->
+
+
+    <!--
+    Dog dog = new Dog();
+    dog.setName("멍멍이");
+    -->
+
+
+    <!--
+    Cat cat = new Cat("야옹이");
+
+    -->
+
+
+    <!--
+    Owner lee = new Owner("이몽룡", 24, cat)
+    index는 매개변수 0부터 시작 0 1 2 3
+    -->
+
+
+</beans>

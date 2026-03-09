@@ -1,15 +1,16 @@
 package com.beyond.di.pet;
 
-public class Cat {
-    private String name;
+public class Cat extends Pet{
 
     public Cat() {
+
     }
 
     public Cat(String name) {
-        this.name = name;
+        super(name);
     }
 
+    @Override
     public String bark() {
         return "야옹";
     }

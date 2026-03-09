@@ -11,14 +11,18 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
+  <!-- 버전 바꿀거면 여기서 바꾸면됨, 복사해서 ${} 안에 넣으면 됨 -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>21</maven.compiler.release>
+    <org.springframework.version>6.2.16</org.springframework.version>
   </properties>
 
   <!--
   BOM에 의해 버전이 관리되므로, 실제 사용하는 JUnit 관련 의존성들의 버전 정보를 생략할 수 있다
   -->
+
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -32,7 +36,22 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- 스프링 관련 라이브러리 -->
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${org.springframework.version}</version>
+    </dependency>
+
+    <!-- Source: https://mvnrepository.com/artifact/org.springframework/spring-test -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${org.springframework.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>

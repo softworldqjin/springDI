@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--
+    <bean id="hong" class="com.beyond.di.owner.Owner">
+        <property name="name" value="홍길동"/>
+        <property name="age" value="34"/>
+        <property name="pet" ref="dog"/>
+    </bean>
+-->
+    <!-- property랑 setter하는거임 p:name
+    pet-ref는 다른 빈(객체) 주입할 때 씀-->
+    <bean id="hong" class="com.beyond.di.owner.Owner"
+          p:name="홍길동" p:age="34" p:pet-ref="dog"/>
+
+    <!--
+    <bean id="lee" class="com.beyond.di.owner.Owner">
+        <constructor-arg name="name" value="이몽룡"/>
+        <constructor-arg index="1" value="24"/>
+        <constructor-arg name="pet" ref="cat"/>
+    </bean>
+    -->
+    <bean id="lee" class="com.beyond.di.owner.Owner"
+          c:name="이몽룡" c:_1="24" c:pet-ref="cat"/>
+</beans>
