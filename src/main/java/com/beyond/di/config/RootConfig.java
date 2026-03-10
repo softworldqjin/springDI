@@ -7,15 +7,17 @@ import com.beyond.di.pet.Pet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 
 // 해당 클래스가 자바 설정 파일임을 선언한다.
 @Configuration
-
 // OwnerConfig PetConfig class 파일 복붙
 @Import(value= {OwnerConfig.class, PetConfig.class})
+// 컴포넌트 스캐닝 활성화
+@ComponentScan("com.beyond.di")
 public class RootConfig {
 
 }

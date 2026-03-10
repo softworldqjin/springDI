@@ -9,8 +9,10 @@
     <import resource="owner-context.xml"/>
     <import resource="pet-context.xml"/>
 
+    <!-- 컴포넌트 스캐닝 활성화 -->
+    <context:component-scan base-package="com.beyond.di" />
 
-
+</beans>
     <!--
     Application context가 객체생성하고 연결해줄거임.
 
@@ -48,5 +50,3 @@
     index는 매개변수 0부터 시작 0 1 2 3
     -->
 
-
-</beans>

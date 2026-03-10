@@ -36,6 +36,13 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- lombok 라이브러리 -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.42</version>
+      <scope>provided</scope>
+    </dependency>
     <!-- 스프링 관련 라이브러리 -->
     <dependency>
       <groupId>org.springframework</groupId>
